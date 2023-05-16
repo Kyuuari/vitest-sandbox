@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, userEvent } from "../utils/test-utils";
+import { render, screen, userEvent } from "../utils/test-utils";
 import Counter from "../components/counter";
 import App from "../app";
 
