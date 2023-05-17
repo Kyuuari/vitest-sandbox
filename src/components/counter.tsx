@@ -1,8 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-// type CounterProps = {};
+type CounterProps = {};
 
-export const Counter = () => {
+const Counter: React.FC<CounterProps> = () => {
   const [count, setCount] = useState(0);
 
   const increment = () => {
@@ -22,18 +22,21 @@ export const Counter = () => {
       <h1>Count: {count}</h1>
       <div className="flex flex-row gap-2">
         <button
+          data-testid="increment-button"
           className="py-2 px-4 bg-slate-900 rounded text-white"
           onClick={increment}
         >
           Increment
         </button>
         <button
+          data-testid="decrement-button"
           className="py-2 px-4 bg-slate-900 rounded text-white"
           onClick={decrement}
         >
           Decrement
         </button>
         <button
+          data-testid="reset-button"
           className="py-2 px-4 bg-slate-900 rounded text-white"
           onClick={reset}
         >
