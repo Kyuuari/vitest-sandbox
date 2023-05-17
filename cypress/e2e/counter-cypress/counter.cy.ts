@@ -5,9 +5,31 @@ describe("Counter Component", () => {
     cy.visit("http://localhost:5173");
   });
 
-  it("increments count when increment button is clicked", () => {
-    cy.contains("Count: 0"); // Verify that the initial count is 0
-    cy.contains("Increment").click(); // Click the increment button
-    cy.contains("Count: 1"); // Verify that the count has been incremented to 1
+  it("increments count flow", () => {
+    cy.contains("Count: 0");
+    cy.findByTestId("increment-button").click();
+    cy.contains("Count: 1");
+  });
+
+  it("Decrement count flow", () => {
+    cy.contains("Count: 0");
+    cy.findByTestId("decrement-button").click();
+    cy.contains("Count: -1");
+  });
+
+  it("Reset count flow", () => {
+    cy.contains("Count: 0");
+    cy.findByTestId("reset-button").click();
+    cy.contains("Count: 0");
+  });
+
+  it("Full count flow", () => {
+    cy.contains("Count: 0");
+    cy.findByTestId("increment-button").click().click();
+    cy.contains("Count: 2");
+    cy.findByTestId("decrement-button").click();
+    cy.contains("Count: 1");
+    cy.findByTestId("reset-button").click();
+    cy.contains("Count: 0");
   });
 });
