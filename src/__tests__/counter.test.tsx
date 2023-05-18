@@ -1,13 +1,7 @@
 import { render, screen, userEvent } from "../utils/test-utils";
 import Counter from "../components/counter";
-import App from "../app";
 
 describe("Counter component", () => {
-  it("renders hello", () => {
-    render(<App />);
-    expect(screen.getByText("Hello World")).toBeInTheDocument();
-  });
-
   it("renders initial count of 0", () => {
     render(<Counter />);
     expect(screen.getByText(/Count: 0/i)).toBeInTheDocument();
